@@ -50,17 +50,55 @@ var specsObject = {
 	height: treeHeight,
 	character: treeCharacter,
 }
-document.getElementById("growYourTree").addEventListener("click", function() {
-	growTree(specsObject); });
+// document.getElementById("growYourTree").addEventListener("click", function() {
+// 	growTree(specsObject); });
+
+
+document.getElementById("growYourTree").addEventListener("click", refreshSpecsObject);
+
+
+// function refreshSpecsObject() {
+// 	treeHeight = parseInt(document.getElementById("treeHeight").value);
+// 	treeCharacter = document.getElementById("treeCharacter").value;
+// 	specsObject = { 
+// 		height: treeHeight,
+// 		character: treeCharacter,
+// 	}
+// }
+
+
+
+function refreshSpecsObject() {
+	treeHeight = parseInt(document.getElementById("treeHeight").value);
+	treeCharacter = document.getElementById("treeCharacter").value;
+	specsObject = { 
+		height: treeHeight,
+		character: treeCharacter,
+	}
+	growTree(specsObject);
+}	
 
 var treeOutputString = " ";
-var spacesInFront = "-";
+var spacesInFront = " ";
 
 function growTree(specs) {
 	// var specsObject = { 
 	// 	height: treeHeight,
 	// 	character: treeCharacter,
 	// }
+
+
+
+	// refreshSpecsObject() ;
+	// 	treeHeight = parseInt(document.getElementById("treeHeight").value);
+	// 	treeCharacter = document.getElementById("treeCharacter").value;
+	// 	specsObject = { 
+	// 	height: treeHeight,
+	// 	character: treeCharacter,
+	// 	}
+	// }	
+
+
 	for (i = 0; i < specs.height; i++) {
 		treeOutputString =  spacesInFront.repeat(specs.height - i) + specs.character.repeat((i * 2) +1);
 		console.log("treeOutputString", treeOutputString);
